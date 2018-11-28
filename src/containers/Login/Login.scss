@@ -1,0 +1,24 @@
+.Login{
+    margin: auto;
+    margin-top: 14rem;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    .login_wrapper{
+        height: 57px;
+        width: 350px;
+        p, button, input{
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        };
+
+        button{
+            background-color: #008ee0;
+            color: white;
+            width: 374px;
+        }
+    }
+    
+}
