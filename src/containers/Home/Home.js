@@ -11,7 +11,11 @@ class Home extends Component {
 			return (
 				<FilmCard
 					key={film.id}
-					title={film.title.split(":")[1]}
+					title={
+						film.title.split(":")[1]
+							? film.title.split(":")[1]
+							: "NO TITLE"
+					}
 					imgSrc={film.images.image[0].src}
 				/>
 			);
