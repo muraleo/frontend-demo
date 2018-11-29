@@ -16,7 +16,8 @@ import {
 class App extends Component {
 	state = {
 		isAuthenticated: false,
-		movieData: []
+		movieData: [],
+		loading: true
 	};
 
 	changeAuthenticatedHandler = history => {
@@ -34,10 +35,11 @@ class App extends Component {
 			axios
 				.get("http://www.snagfilms.com/apis/films.json?limit=10")
 				.then(data => {
-					console.log(data.data.films.film);
+					// console.log(data.data.films.film);
 					this.setState({
 						...this.state,
-						movieData: data.data.films.film
+						movieData: data.data.films.film,
+						loading: false
 					});
 				})
 				.catch(function(error) {
@@ -98,7 +100,11 @@ class App extends Component {
 							path="/"
 							exact
 							render={props => (
-								<Home {...props} data={this.state.movieData} />
+								<Home
+									{...props}
+									data={this.state.movieData}
+									loading={this.state.loading}
+								/>
 							)}
 						/>
 					</Switch>

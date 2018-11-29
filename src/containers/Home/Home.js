@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Home.scss";
 
 import FilmCard from "../../components/filmCard/filmCard";
+import Spinner from "../../components/spinner/spinner";
 
 class Home extends Component {
 	render() {
@@ -15,7 +16,14 @@ class Home extends Component {
 				/>
 			);
 		});
-		return <div className="Home">{filmcards}</div>;
+
+		const spinr = this.props.loading ? <Spinner /> : null;
+		return (
+			<div className="Home">
+				{filmcards}
+				{spinr}
+			</div>
+		);
 	}
 }
 

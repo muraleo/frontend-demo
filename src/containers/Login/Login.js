@@ -5,7 +5,6 @@ class Login extends Component {
 	state = {
 		email: "",
 		password: "",
-		loading: false,
 		errorMessage: "",
 		emailValid: false,
 		passwordValid: false
@@ -61,11 +60,6 @@ class Login extends Component {
 	};
 
 	render() {
-		let login_bottom = this.props.loading ? (
-			<p>Loading</p>
-		) : (
-			<p>{this.state.errorMessage}</p>
-		);
 		return (
 			<div className="Login">
 				<div className="login_wrapper">
@@ -94,7 +88,7 @@ class Login extends Component {
 						LOG IN
 					</button>
 				</div>
-				<div className="login_wrapper">{login_bottom}</div>
+				<div className="login_wrapper">{this.state.errorMessage}</div>
 			</div>
 		);
 	}
