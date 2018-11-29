@@ -33,7 +33,7 @@ class App extends Component {
 	componentDidUpdate() {
 		if (this.state.isAuthenticated && this.state.movieData.length === 0) {
 			axios
-				.get("http://www.snagfilms.com/apis/films.json?limit=10")
+				.get("//www.snagfilms.com/apis/films.json?limit=10")
 				.then(data => {
 					// console.log(data.data.films.film);
 					this.setState({
