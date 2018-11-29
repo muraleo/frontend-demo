@@ -12,9 +12,11 @@ class Home extends Component {
 				<FilmCard
 					key={film.id}
 					title={
-						film.title.split(":")[1]
+						film.title.indexOf(":") !== -1
 							? film.title.split(":")[1]
-							: "NO TITLE"
+								? film.title.split(":")[1]
+								: "NO TITLE"
+							: film.title
 					}
 					imgSrc={film.images.image[0].src}
 				/>
