@@ -16,7 +16,7 @@ import {
 class App extends Component {
 	state = {
 		isAuthenticated: false,
-		movieData: {}
+		movieData: []
 	};
 
 	changeAuthenticatedHandler = history => {
@@ -30,13 +30,14 @@ class App extends Component {
 	};
 
 	componentDidUpdate() {
-		if (this.state.isAuthenticated) {
+		if (this.state.isAuthenticated && this.state.movieData.length === 0) {
 			axios
 				.get("http://www.snagfilms.com/apis/films.json?limit=10")
 				.then(data => {
+					console.log(data.data.films.film);
 					this.setState({
 						...this.state,
-						movieData: data
+						movieData: data.data.films.film
 					});
 				})
 				.catch(function(error) {

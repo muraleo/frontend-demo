@@ -6,8 +6,10 @@
     width: 30%;
 
     .login_wrapper{
+        display: flex;
         height: 57px;
-        width: 350px;
+        width: 100%;
+
         p, button, input{
             width: 100%;
             margin: 10px 0;
@@ -17,8 +19,19 @@
         button{
             background-color: #008ee0;
             color: white;
-            width: 374px;
+            width: 100%;
         }
     }
     
+    @media (max-width: 1200px){
+        width: 30%;
+    }
+
+    @media (max-width: 992px){
+        width: 45%;
+    }
+
+    @media (max-width: 768px){
+        width: 60%;
+    }
 }
